@@ -1,3 +1,6 @@
+- Remove this rule: **This plugin attempts to follow the CSS `@import` spec**; `@import`
+  statements must precede all other statements (besides `@charset`).
+
 # postcss-import
 
 [![Unix Build status](https://img.shields.io/travis/postcss/postcss-import/master.svg?branch=master&label=unix%20build)](https://travis-ci.org/postcss/postcss-import)
@@ -37,8 +40,6 @@ please look at
 (which use this plugin under the hood).
 - Imports which are not modified (by `options.filter` or because they are remote
   imports) are moved to the top of the output.
-- **This plugin attempts to follow the CSS `@import` spec**; `@import`
-  statements must precede all other statements (besides `@charset`).
 
 ## Installation
 
@@ -113,7 +114,7 @@ Checkout the [tests](test) for more examples.
 ### Options
 
 ### `filter`
-Type: `Function`  
+Type: `Function`
 Default: `() => true`
 
 Only transform imports for which the test function returns `true`. Imports for
@@ -122,32 +123,32 @@ the path to import as an argument and should return a boolean.
 
 #### `root`
 
-Type: `String`  
+Type: `String`
 Default: `process.cwd()` or _dirname of
 [the postcss `from`](https://github.com/postcss/postcss#node-source)_
 
 Define the root where to resolve path (eg: place where `node_modules` are).
-Should not be used that much.  
+Should not be used that much.
 _Note: nested `@import` will additionally benefit of the relative dirname of
 imported files._
 
 #### `path`
 
-Type: `String|Array`  
+Type: `String|Array`
 Default: `[]`
 
 A string or an array of paths in where to look for files.
 
 #### `plugins`
 
-Type: `Array`  
+Type: `Array`
 Default: `undefined`
 
 An array of plugins to be applied on each imported files.
 
 #### `resolve`
 
-Type: `Function`  
+Type: `Function`
 Default: `null`
 
 You can provide a custom path resolver with this option. This function gets
@@ -159,7 +160,7 @@ You can use [resolve](https://github.com/substack/node-resolve) for this.
 
 #### `load`
 
-Type: `Function`  
+Type: `Function`
 Default: null
 
 You can overwrite the default loading way by setting this option.
@@ -168,7 +169,7 @@ promised content.
 
 #### `skipDuplicates`
 
-Type: `Boolean`  
+Type: `Boolean`
 Default: `true`
 
 By default, similar files (based on the same content) are being skipped.
@@ -178,7 +179,7 @@ disable it.
 
 #### `addModulesDirectories`
 
-Type: `Array`  
+Type: `Array`
 Default: `[]`
 
 An array of folder names to add to [Node's resolver](https://github.com/substack/node-resolve).
